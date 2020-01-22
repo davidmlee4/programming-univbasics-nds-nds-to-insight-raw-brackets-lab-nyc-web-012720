@@ -23,13 +23,13 @@ def directors_totals(nds)
   grand_total = 0
   name_index = 0
   while name_index < nds.length do # row index < 9
-    director = nds[name_index][:name]
-    result[director] = 0
-    movie_index = 0
-    while movie_index < nds[name_index][:movies].count do
+    director = nds[name_index][:name] #we did this because we want to assign a variable to each director
+    result[director] = 0              #because each director had MULTPLE movies and we want to know the total
+    movie_index = 0               #gross for each director so we created a variable and are using the result hash to add
+    while movie_index < nds[name_index][:movies].count do #two arrays would equate to using two while operators in def
       result[director] += directors_database[name_index][:movies][movie_index][:worldwide_gross]
-      movie_index += 1
-    end
+      movie_index += 1 #+= to the inner array index always should come before the while 'ends' and is defined as 0
+    end               # before the while operator is called
     name_index += 1
   end
 
